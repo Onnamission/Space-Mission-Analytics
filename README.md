@@ -1,6 +1,7 @@
 # Space Mission Analytics
 
 ![Github Repo Release](https://img.shields.io/github/release-date/Onnamission/Space-Mission-Analytics)
+![Github Repo Build](https://img.shields.io/github/workflow/status/Onnamission/Space-Mission-Analytics/spacemissions)
 ![Github Repo Size](https://img.shields.io/github/repo-size/Onnamission/Space-Mission-Analytics)
 ![Github Repo License](https://img.shields.io/github/license/Onnamission/Space-Mission-Analytics)
 ![Github Repo Maintenance](https://img.shields.io/maintenance/yes/2022)
