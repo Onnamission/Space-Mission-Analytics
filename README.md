@@ -2,9 +2,9 @@
 ![Github Repo Size](https://img.shields.io/github/repo-size/Onnamission/Space-Mission-Analytics)
 ![Github Repo License](https://img.shields.io/github/license/Onnamission/Space-Mission-Analytics)
 
-# Space Missions Analysis
+# Space Mission Analytics
 
-Analysis of space missions of various companies.
+Analysis of space missions of various companies around the globe.
 
 ## Tech Stack
 
