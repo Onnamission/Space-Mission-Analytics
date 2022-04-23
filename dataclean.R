@@ -13,7 +13,7 @@ library(weathermetrics)
 # Setting working directory
 
 print(getwd())
-setwd("path to directory")
+setwd("D:/Projects/Space-Mission-Analytics")
 print(getwd())
 
 df = read_excel('Dataset/SpaceMissions.xlsx')
