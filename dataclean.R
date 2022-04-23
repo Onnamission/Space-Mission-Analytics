@@ -2,10 +2,9 @@
 
 library(tidyverse)
 library(janitor)
-library(skimr)
 library(lubridate)
 library(readxl)
-library(dplyr)
+library(weathermetrics)
 
 
 # Setting working directory
