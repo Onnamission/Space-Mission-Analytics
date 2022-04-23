@@ -1,3 +1,5 @@
+# Code written by Aditya Kakde, owner of account @Onnamission
+
 library(tidyverse)
 library(janitor)
 library(skimr)
@@ -11,7 +13,7 @@ library(weathermetrics)
 # Setting working directory
 
 print(getwd())
-setwd("C:/Users/lenovo/Desktop/Space-Mission-Analytics")
+setwd("path to directory")
 print(getwd())
 
 df = read_excel('Dataset/SpaceMissions.xlsx')
