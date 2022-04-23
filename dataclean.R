@@ -6,19 +6,17 @@ library(skimr)
 library(lubridate)
 library(readxl)
 library(dplyr)
-library(tm)
-library(weathermetrics)
 
 
 # Setting working directory
 
-print(getwd())
-setwd("D:/Projects/Space-Mission-Analytics")
-print(getwd())
+# print(getwd())
+# setwd("D:/Projects/Space-Mission-Analytics")
+# print(getwd())
 
 df = read_excel('Dataset/SpaceMissions.xlsx')
 
-View(df)
+# View(df)
 
 
 # Data Cleaning Pipeline 1
@@ -26,7 +24,7 @@ View(df)
 data_clean = df %>%
   janitor::clean_names()
 
-View(data_clean)
+# View(data_clean)
 
 sapply(data_clean, class)
 
@@ -35,14 +33,14 @@ sapply(data_clean, class)
 
 data_clean = subset(data_clean, select = -c(payload_name, launch_time))
 
-View(data_clean)
+# View(data_clean)
 
 
 # Replacing NA with No Failure in failure_reason as for success NA is given.
 
 data_clean$failure_reason[is.na(data_clean$failure_reason)] = "No Failure"
 
-View(data_clean)
+# View(data_clean)
 
 
 # converting data type
@@ -59,7 +57,7 @@ data_clean$fairing_diameter_m = as.numeric(data_clean$fairing_diameter_m)
 
 data_clean$payload_mass_kg = as.numeric(data_clean$payload_mass_kg)
 
-View(data_clean)
+# View(data_clean)
 
 
 # Data Cleaning Pipeline 2
@@ -69,7 +67,7 @@ dataclean = data_clean %>%
   na_if(0) %>%
   drop_na()
 
-View(dataclean)
+# View(dataclean)
 
 
 # Removing redundancy
@@ -94,7 +92,7 @@ dataclean$payload_type[dataclean$payload_type == "Research Satellites"] = "Commu
 
 dataclean$payload_type[dataclean$payload_type == "GPS III satellites"] = "Global Positioning System"
 
-View(dataclean)
+# View(dataclean)
 
 
 # changing mission status to 1 and 0
@@ -103,7 +101,7 @@ dataclean$mission_status[dataclean$mission_status == "Success"] = 1
 
 dataclean$mission_status[dataclean$mission_status == "Failure"] = 0
 
-View(dataclean)
+# View(dataclean)
 
 
 # Converting temperature from F to C
@@ -112,7 +110,7 @@ dataclean$temperature_a_f = fahrenheit.to.celsius(dataclean$temperature_a_f)
 
 dataclean$temperature_a_f = round(dataclean$temperature_a_f)
 
-View(dataclean)
+# View(dataclean)
 
 
 # Remaining Columns
@@ -134,7 +132,7 @@ colnames(dataclean) = c("company",
                         "mission_status",
                         "failure_reason")
 
-View(dataclean)
+# View(dataclean)
 
 
 # creating new columns by company name and there success
@@ -162,7 +160,7 @@ dataclean$spacex_s[dataclean$spacex == 1 & dataclean$mission_status == 0] = 0
 
 dataclean$spacex_s[dataclean$spacex == 0 & dataclean$mission_status == 0] = 0
 
-View(dataclean)
+# View(dataclean)
 
 # boeing and its success
 dataclean$boeing = c(dataclean$company)
@@ -187,7 +185,7 @@ dataclean$boeing_s[dataclean$boeing == 1 & dataclean$mission_status == 0] = 0
 
 dataclean$boeing_s[dataclean$boeing == 0 & dataclean$mission_status == 0] = 0
 
-View(dataclean)
+# View(dataclean)
 
 # Martin Marietta and its success
 dataclean$martin_marietta = c(dataclean$company)
@@ -212,7 +210,7 @@ dataclean$martin_marietta_s[dataclean$martin_marietta == 1 & dataclean$mission_s
 
 dataclean$martin_marietta_s[dataclean$martin_marietta == 0 & dataclean$mission_status == 0] = 0
 
-View(dataclean)
+# View(dataclean)
 
 # US Air Force and its success
 dataclean$us_air_force = c(dataclean$company)
@@ -237,7 +235,7 @@ dataclean$us_air_force_s[dataclean$us_air_force == 1 & dataclean$mission_status 
 
 dataclean$us_air_force_s[dataclean$us_air_force == 0 & dataclean$mission_status == 0] = 0
 
-View(dataclean)
+# View(dataclean)
 
 # Brazilian Space Agency and its success
 dataclean$brazilian_space_agency = c(dataclean$company)
@@ -262,7 +260,7 @@ dataclean$brazilian_space_agency_s[dataclean$brazilian_space_agency == 1 & datac
 
 dataclean$brazilian_space_agency_s[dataclean$brazilian_space_agency == 0 & dataclean$mission_status == 0] = 0
 
-View(dataclean)
+# View(dataclean)
 
 
 # Changing data type
@@ -281,9 +279,9 @@ dataclean$us_air_force = as.numeric(dataclean$us_air_force)
 
 dataclean$brazilian_space_agency = as.numeric(dataclean$brazilian_space_agency)
 
-View(dataclean)
+# View(dataclean)
 
 
 # writing changes to excel file
 
-write.csv(dataclean, "space_missions.csv", row.names = FALSE)
+# write.csv(dataclean, "space_missions.csv", row.names = FALSE)
