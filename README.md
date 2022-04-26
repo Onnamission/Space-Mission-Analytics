@@ -7,6 +7,8 @@
 ![Github Repo Maintenance](https://img.shields.io/maintenance/yes/2022)
 ![Github Repo Download](https://img.shields.io/github/downloads/Onnamission/Space-Mission-Analytics/total)
 
+![Space Missions](Images/space_missions.jpg)
+
 Analysis of space missions of various companies around the globe.
 
 ## Tech Stack
