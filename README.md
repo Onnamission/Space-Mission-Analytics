@@ -36,7 +36,7 @@ Now here comes the role on R where you just need to define a function in a pipli
 
 ## Data Pipeline in R
 
-```bash
+```r
   data_clean = df %>%
     drop_na()
 ```
@@ -85,21 +85,21 @@ Long live space missions. Thank you for the acknowledgement for providing this g
 
 Removing unnecessary columns and replacing NAs with No Failure in failure reasons.
 
-```bash
+```r
   data_clean = subset(data_clean, select = -c(payload_name, launch_time))
   data_clean$failure_reason[is.na(data_clean$failure_reason)] = "No Failure"
 ```
 
 Converting data types and removing redundancies.
 
-```bash
+```r
   data_clean$launch_date = as.Date(data_clean$launch_date)
   dataclean$payload_type[dataclean$payload_type == "GPS III satellites"] = "Global Positioning System"
 ```
 
 Changing success to 1 and failure to 0 in mission success column. Also, converting degree farenhite to degree celsius. Then, renaming columns.
 
-```bash
+```r
   dataclean$mission_status[dataclean$mission_status == "Success"] = 1
   dataclean$temperature_a_f = fahrenheit.to.celsius(dataclean$temperature_a_f)
 ```
@@ -123,7 +123,7 @@ In order to count the number of each companies launch and there success, 10 new 
 where s means success. In spacex column, the values from company column were copy pasted and then chose cells which have spacex string was converted to 1 and others to 0. Same procedure were applied in other created columns.
 In the s (success) columns, if the value of mission success is 1 and the newly created column named after company value is 1, then the s (success) column will be 1 or else 0.
 
-```bash
+```r
   dataclean$spacex_s[dataclean$spacex == 1 & dataclean$mission_status == 1] = 1
   dataclean$boeing_s[dataclean$boeing == 0 & dataclean$mission_status == 1] = 0
 ```
